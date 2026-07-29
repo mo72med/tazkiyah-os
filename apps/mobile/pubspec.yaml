@@ -15,6 +15,14 @@ dependencies:
     path: ../../packages/core
   tazkiyah_identity:
     path: ../../packages/identity
+  tazkiyah_journey:
+    path: ../../packages/journey
+  tazkiyah_knowledge:
+    path: ../../packages/knowledge
+  tazkiyah_practice:
+    path: ../../packages/practice
+  tazkiyah_reflection:
+    path: ../../packages/reflection
 
 dev_dependencies:
   flutter_test:
