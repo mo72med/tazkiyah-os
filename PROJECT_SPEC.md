@@ -77,7 +77,7 @@ The repository already contains a working foundation:
 - unit tests exist for `knowledge`
 - unit tests exist for `practice`
 - unit tests exist for `reflection`
-- unit tests exist for `apps/mobile` app repository seam
+- unit tests exist for the app repository seam
 
 ## 5) Implemented Domains and Responsibilities
 
@@ -216,7 +216,7 @@ Current status:
 - `AppController` now holds and exposes the current `AppState`.
 - `DashboardView` reads from `AppController` instead of reading `AppState` directly.
 - `AppRepository` and `LocalStorage` now exist as placeholder persistence seams.
-- `AppController` is now wired to `AppRepository`.
+- `AppController` is wired to `AppRepository`.
 - The next implementation step is to replace the in-memory placeholder with a real local storage backend.
 
 ### 6.5 App Controller
