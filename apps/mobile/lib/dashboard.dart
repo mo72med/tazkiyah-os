@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tazkiyah_core/core.dart';
-import 'package:tazkiyah_identity/identity.dart';
-import 'package:tazkiyah_journey/journey.dart';
-import 'package:tazkiyah_knowledge/knowledge.dart';
-import 'package:tazkiyah_practice/practice.dart';
-import 'package:tazkiyah_reflection/reflection.dart';
+
+import 'app_state.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final snapshot = DashboardSnapshot.demo();
+    final snapshot = AppState.demo();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Tazkiyah OS')),
@@ -59,56 +55,6 @@ class DashboardView extends StatelessWidget {
       ),
     );
   }
-}
-
-final class DashboardSnapshot {
-  const DashboardSnapshot({
-    required this.identity,
-    required this.journey,
-    required this.knowledgeCard,
-    required this.practice,
-    required this.reflection,
-  });
-
-  factory DashboardSnapshot.demo() {
-    return DashboardSnapshot(
-      identity: Identity(
-        id: const Id('demo-identity'),
-        displayName: 'Mohamed',
-        mission: const Mission(
-          'Build a life of worship, knowledge, and disciplined action.',
-        ),
-      ),
-      journey: Journey(
-        id: const Id('demo-journey'),
-        title: 'Morning routine',
-        description: 'A small daily rhythm for worship and discipline.',
-        isStarted: true,
-      ),
-      knowledgeCard: const KnowledgeCard(
-        id: Id('demo-card'),
-        title: 'Sincerity',
-        summary: 'Doing the right thing for the right reason.',
-      ),
-      practice: Practice(
-        id: const Id('demo-practice'),
-        title: 'Read one knowledge card',
-        notes: 'Keep it small and consistent.',
-        isCompleted: false,
-      ),
-      reflection: Reflection(
-        id: const Id('demo-reflection'),
-        summary: 'I need to protect the first hour of the day.',
-        notes: 'Morning focus is stronger than evening focus.',
-      ),
-    );
-  }
-
-  final Identity identity;
-  final Journey journey;
-  final KnowledgeCard knowledgeCard;
-  final Practice practice;
-  final Reflection reflection;
 }
 
 class _SectionCard extends StatelessWidget {
