@@ -58,6 +58,7 @@ The repository already contains a working foundation:
 - `apps/mobile/lib/app.dart` is the app shell
 - `apps/mobile/lib/dashboard.dart` is the dashboard view
 - `apps/mobile/lib/app_state.dart` is the current snapshot model used by the dashboard
+- `apps/mobile/lib/app_controller.dart` is the first controller layer holding app state
 
 ### Packages
 - `packages/core/`
@@ -197,7 +198,7 @@ File: `apps/mobile/lib/dashboard.dart`
 
 Current responsibility:
 - render the current skeleton view
-- display the current snapshot
+- display the current snapshot through `AppController`
 - remain UI-only as much as possible
 
 ### 6.4 App State
@@ -208,8 +209,19 @@ Current responsibility:
 - act as the temporary bridge before persistence and state management are introduced
 
 Current status:
-- `AppState` is still demo-based and not yet a real controller/service-driven application state.
-- The next implementation step is to introduce real application state management while preserving the same snapshot shape as a compatibility layer.
+- `AppState` is still demo-based and not yet the final application state.
+- `AppController` now holds and exposes the current `AppState`.
+- `DashboardView` reads from `AppController` instead of reading `AppState` directly.
+- The next implementation step is to evolve `AppController` into a real state/service layer and then add persistence.
+
+### 6.5 App Controller
+File: `apps/mobile/lib/app_controller.dart`
+
+Current responsibility:
+- own the current application state
+- expose the current `AppState`
+- allow state replacement in memory for now
+- serve as the first state-management layer
 
 ## 7) Current Walking Skeleton
 
@@ -333,6 +345,7 @@ Completed:
 - app shell simplified
 - dashboard state snapshot extracted
 - app state snapshot added
+- app controller added
 - master project specification created
 
 ## 14) What is still pending
