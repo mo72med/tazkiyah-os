@@ -1,13 +1,19 @@
+import 'app_repository.dart';
 import 'app_state.dart';
 
 final class AppController {
-  AppController({AppState? initialState}) : _state = initialState ?? AppState.demo();
+  AppController({AppRepository? repository})
+      : _repository = repository ?? AppRepository() {
+    _state = _repository.loadOrCreate();
+  }
 
-  AppState _state;
+  final AppRepository _repository;
+  late AppState _state;
 
   AppState get state => _state;
 
   void replaceState(AppState nextState) {
     _state = nextState;
+    _repository.save(nextState);
   }
 }
