@@ -57,7 +57,7 @@ The repository already contains a working foundation:
 - `apps/mobile/lib/main.dart` is a clean entrypoint only
 - `apps/mobile/lib/app.dart` is the app shell
 - `apps/mobile/lib/dashboard.dart` is the dashboard view
-- `apps/mobile/lib/app_state.dart` is the current snapshot model
+- `apps/mobile/lib/app_state.dart` is the current snapshot model used by the dashboard
 
 ### Packages
 - `packages/core/`
@@ -329,6 +329,7 @@ Completed:
 - app shell simplified
 - dashboard state snapshot extracted
 - app state snapshot added
+- master project specification created
 
 ## 14) What is still pending
 
