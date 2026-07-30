@@ -207,6 +207,10 @@ Current responsibility:
 - hold a demo snapshot of the five core domains
 - act as the temporary bridge before persistence and state management are introduced
 
+Current status:
+- `AppState` is still demo-based and not yet a real controller/service-driven application state.
+- The next implementation step is to introduce real application state management while preserving the same snapshot shape as a compatibility layer.
+
 ## 7) Current Walking Skeleton
 
 The app currently shows a working dashboard for:
