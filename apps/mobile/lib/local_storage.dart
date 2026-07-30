@@ -1,9 +1,10 @@
 import 'app_state.dart';
 
-/// Temporary in-memory local storage abstraction.
+/// Temporary local persistence seam.
 ///
-/// This is a placeholder for the real persistence layer that will later be
-/// backed by Hive, Isar, Drift, or another local storage implementation.
+/// This implementation is still in-memory, but the API is intentionally kept
+/// small so it can later be swapped with Hive, Isar, Drift, or another on-device
+/// storage backend without changing the callers.
 final class LocalStorage {
   AppState? _state;
 
