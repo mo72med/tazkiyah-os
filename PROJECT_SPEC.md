@@ -77,6 +77,7 @@ The repository already contains a working foundation:
 - unit tests exist for `knowledge`
 - unit tests exist for `practice`
 - unit tests exist for `reflection`
+- unit tests exist for `apps/mobile` app repository seam
 
 ## 5) Implemented Domains and Responsibilities
 
@@ -215,7 +216,8 @@ Current status:
 - `AppController` now holds and exposes the current `AppState`.
 - `DashboardView` reads from `AppController` instead of reading `AppState` directly.
 - `AppRepository` and `LocalStorage` now exist as placeholder persistence seams.
-- The next implementation step is to wire `AppController` to `AppRepository` and then replace the in-memory placeholder with a real local storage backend.
+- `AppController` is now wired to `AppRepository`.
+- The next implementation step is to replace the in-memory placeholder with a real local storage backend.
 
 ### 6.5 App Controller
 File: `apps/mobile/lib/app_controller.dart`
@@ -223,7 +225,8 @@ File: `apps/mobile/lib/app_controller.dart`
 Current responsibility:
 - own the current application state
 - expose the current `AppState`
-- allow state replacement in memory for now
+- load from `AppRepository` during initialization
+- save through `AppRepository` when state changes
 - serve as the first state-management layer
 
 ### 6.6 App Repository
@@ -368,6 +371,8 @@ Completed:
 - app controller added
 - app repository placeholder added
 - local storage placeholder added
+- app controller wired to app repository
+- app repository seam tests added
 - master project specification created
 
 ## 14) What is still pending
