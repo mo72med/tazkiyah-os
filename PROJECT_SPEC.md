@@ -59,6 +59,8 @@ The repository already contains a working foundation:
 - `apps/mobile/lib/dashboard.dart` is the dashboard view
 - `apps/mobile/lib/app_state.dart` is the current snapshot model used by the dashboard
 - `apps/mobile/lib/app_controller.dart` is the first controller layer holding app state
+- `apps/mobile/lib/local_storage.dart` is a temporary in-memory storage placeholder
+- `apps/mobile/lib/app_repository.dart` is a temporary repository placeholder for app state
 
 ### Packages
 - `packages/core/`
@@ -212,7 +214,8 @@ Current status:
 - `AppState` is still demo-based and not yet the final application state.
 - `AppController` now holds and exposes the current `AppState`.
 - `DashboardView` reads from `AppController` instead of reading `AppState` directly.
-- The next implementation step is to evolve `AppController` into a real state/service layer and then add persistence.
+- `AppRepository` and `LocalStorage` now exist as placeholder persistence seams.
+- The next implementation step is to wire `AppController` to `AppRepository` and then replace the in-memory placeholder with a real local storage backend.
 
 ### 6.5 App Controller
 File: `apps/mobile/lib/app_controller.dart`
@@ -222,6 +225,23 @@ Current responsibility:
 - expose the current `AppState`
 - allow state replacement in memory for now
 - serve as the first state-management layer
+
+### 6.6 App Repository
+File: `apps/mobile/lib/app_repository.dart`
+
+Current responsibility:
+- load the current `AppState` from `LocalStorage` if available
+- fall back to `AppState.demo()` when storage is empty
+- save `AppState` back to `LocalStorage`
+- act as a placeholder seam before real persistence is added
+
+### 6.7 Local Storage
+File: `apps/mobile/lib/local_storage.dart`
+
+Current responsibility:
+- provide an in-memory placeholder for local persistence
+- allow the app to simulate saving and loading state
+- be replaced later by Hive/Isar/Drift-backed storage
 
 ## 7) Current Walking Skeleton
 
@@ -346,6 +366,8 @@ Completed:
 - dashboard state snapshot extracted
 - app state snapshot added
 - app controller added
+- app repository placeholder added
+- local storage placeholder added
 - master project specification created
 
 ## 14) What is still pending
