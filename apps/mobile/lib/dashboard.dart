@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 
-import 'app_state.dart';
+import 'app_controller.dart';
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
 
   @override
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
+  late final AppController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AppController();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final snapshot = AppState.demo();
+    final snapshot = _controller.state;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Tazkiyah OS')),
