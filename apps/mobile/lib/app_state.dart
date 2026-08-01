@@ -53,4 +53,20 @@ final class AppState {
   final KnowledgeCard knowledgeCard;
   final Practice practice;
   final Reflection reflection;
+
+  AppState copyWith({
+    Identity? identity,
+    Journey? journey,
+    KnowledgeCard? knowledgeCard,
+    Practice? practice,
+    Reflection? reflection,
+  }) {
+    return AppState(
+      identity: identity ?? this.identity,
+      journey: journey ?? this.journey,
+      knowledgeCard: knowledgeCard ?? this.knowledgeCard,
+      practice: practice ?? this.practice,
+      reflection: reflection ?? this.reflection,
+    );
+  }
 }
