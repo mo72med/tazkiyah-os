@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  isar_community: ^4.0.0-dev.14
+  isar_community_flutter_libs: ^4.0.0-dev.14
   tazkiyah_core:
     path: ../../packages/core
   tazkiyah_identity:
@@ -28,6 +30,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  isar_community_generator: ^4.0.0-dev.14
+  build_runner: ^2.4.13
 
 flutter:
   uses-material-design: true
